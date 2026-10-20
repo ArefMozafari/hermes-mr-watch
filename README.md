@@ -1,11 +1,32 @@
-# hermes-mr-watch
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/hermes-dark.png">
+    <img src="assets/hermes.png" width="110" alt="Hermes Agent">
+  </picture>
+</p>
 
-**Review pings from GitLab and GitHub, in your Hermes chat, within a minute.**
+<h1 align="center">hermes-mr-watch</h1>
+
+<p align="center"><b>Review pings from GitLab and GitHub, in your Hermes chat, within a minute.</b></p>
+
+<p align="center">
+  <img src="assets/gitlab.svg" width="34" alt="GitLab">&nbsp;&nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/github-white.svg"><img src="assets/github.svg" width="34" alt="GitHub"></picture>
+  &nbsp;&nbsp;&nbsp;➜&nbsp;&nbsp;&nbsp;
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/hermes-dark.png"><img src="assets/hermes.png" width="34" alt="Hermes"></picture>
+  &nbsp;&nbsp;&nbsp;➜&nbsp;&nbsp;&nbsp;
+  <img src="assets/telegram.svg" width="34" alt="Telegram">
+</p>
+
+<p align="center">
+  <a href="https://github.com/ArefMozafari/hermes-mr-watch/actions/workflows/test.yml"><img src="https://github.com/ArefMozafari/hermes-mr-watch/actions/workflows/test.yml/badge.svg" alt="Tests"></a>
+  <a href="https://github.com/ArefMozafari/hermes-mr-watch/releases/latest"><img src="https://img.shields.io/github/v/release/ArefMozafari/hermes-mr-watch?color=orange" alt="Release"></a>
+  <img src="https://img.shields.io/badge/python-3.9%2B-3776AB?logo=python&logoColor=white" alt="Python 3.9+">
+  <a href="https://hermes-agent.nousresearch.com"><img src="https://img.shields.io/badge/Hermes-skill-FFD700" alt="Hermes skill"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+</p>
 
 A [Hermes Agent](https://hermes-agent.nousresearch.com) skill. You install it, and Hermes sets up a cron job that runs every minute without an LLM. The job tells you when someone needs you on a merge request or pull request, and stays silent the rest of the time.
-
-[![Tests](https://github.com/ArefMozafari/hermes-mr-watch/actions/workflows/test.yml/badge.svg)](https://github.com/ArefMozafari/hermes-mr-watch/actions/workflows/test.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ```
 💬 Comment on your MR
@@ -23,7 +44,7 @@ Fix crash on cold start
 
 ## What it watches
 
-| | GitLab | GitHub |
+| | <img src="assets/gitlab.svg" width="16" alt=""> GitLab | <picture><source media="(prefers-color-scheme: dark)" srcset="assets/github-white.svg"><img src="assets/github.svg" width="16" alt="GitHub"></picture> GitHub |
 |---|:-:|:-:|
 | Review requested from you | ✓ | ✓ |
 | Comments on your MRs/PRs, with file and excerpt | ✓ | ✓ |
@@ -45,8 +66,8 @@ Fix crash on cold start
 
 ### New to Hermes? (one-time, ~5 min)
 
-1. **Install Hermes:** `curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`, then run `hermes setup` and pick a model provider. On macOS you can install the [desktop app](https://hermes-agent.nousresearch.com/docs/getting-started/installation) instead.
-2. **Connect Telegram:** run `hermes plugins enable telegram-platform`, then `hermes gateway setup` → **Telegram**. Choose the QR option (scan it in Telegram, and Hermes creates the bot for you) or paste a token from [@BotFather](https://t.me/BotFather). Say **yes** to allow-listing your own account, so only you can use the bot.
+1. <picture><source media="(prefers-color-scheme: dark)" srcset="assets/hermes-dark.png"><img src="assets/hermes.png" width="16" alt=""></picture> **Install Hermes:** `curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`, then run `hermes setup` and pick a model provider. On macOS you can install the [desktop app](https://hermes-agent.nousresearch.com/docs/getting-started/installation) instead.
+2. <img src="assets/telegram.svg" width="16" alt=""> **Connect Telegram:** run `hermes plugins enable telegram-platform`, then `hermes gateway setup` → **Telegram**. Choose the QR option (scan it in Telegram, and Hermes creates the bot for you) or paste a token from [@BotFather](https://t.me/BotFather). Say **yes** to allow-listing your own account, so only you can use the bot.
 3. **Keep it running:** run `hermes gateway install`, so the bot and the cron jobs survive reboots. Then send your bot a message. If it answers, you're ready.
 
 Full guides: [installation](https://hermes-agent.nousresearch.com/docs/getting-started/installation), [Telegram](https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram).
