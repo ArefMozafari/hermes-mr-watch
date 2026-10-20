@@ -86,9 +86,9 @@ STRINGS = {
         "merged": "🟣 **مرج شد**",
         "closed": "⛔ **بسته شد**",
         "reopened": "🔄 **دوباره باز شد**",
-        "vpn_down": "🔌 **وی‌پی‌ان {name} قطعه، وصلش کن**\n"
-                    "تا وصل نشه گیت‌لب چک نمی‌شه. بعد از وصل شدن، همه‌ی رویدادهای این مدت رو می‌فرستم.",
-        "vpn_up": "✅ **وی‌پی‌ان {name} وصل شد**",
+        "vpn_down": "🔌 **وی\u200cپی\u200cان {name} قطعه، وصلش کن**\n"
+                    "تا وصل نشه گیت\u200cلب چک نمی\u200cشه. بعد از وصل شدن، همه\u200cی رویدادهای این مدت رو می\u200cفرستم.",
+        "vpn_up": "✅ **وی\u200cپی\u200cان {name} وصل شد**",
         "src_down": "⚠️ **{src} {n} بار پشت سر هم در دسترس نبود**\n{reason}",
         "src_up": "✅ **{src} دوباره در دسترسه**",
         "code": "[کد]",
@@ -353,7 +353,7 @@ class GitHub:
             self.bin = find_bin("gh", cfg.get("gh_path"))
             if cfg.get("gh_account"):     # use one gh account without switching the active one
                 token = run([self.bin, "auth", "token", "-u", cfg["gh_account"]]).strip()
-                self.env = {**os.environ, "GH_TOKEN": token}
+                os.putenv("GH_TOKEN", token)   # inherited by gh child processes only
 
     def api(self, path, params=None):
         cmd = [self.bin, "api", "-X", "GET", path]
@@ -526,8 +526,9 @@ def vpn_up(vpn, host):
     different interface than the route to the public internet. Set
     `interface_prefixes` (e.g. ["utun"]) when the VPN carries all traffic.
     """
-    if os.environ.get("MR_WATCH_FAKE_VPN") in ("up", "down"):
-        return os.environ["MR_WATCH_FAKE_VPN"] == "up"
+    fake = os.getenv("MR_WATCH_FAKE_VPN")
+    if fake in ("up", "down"):
+        return fake == "up"
     ip = vpn.get("check_ip")
     if not ip:
         try:

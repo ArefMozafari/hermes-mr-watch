@@ -74,7 +74,7 @@ Ask the user only for what you can't discover. Run every command yourself with t
 
 ## Remove
 
-`hermes cron remove <job_id>`, then `rm ~/.hermes/scripts/mr_watch.py`, then `rm -r ~/.hermes/mr-watch`.
+`hermes cron remove <job_id>`, then delete `~/.hermes/scripts/mr_watch.py` and the `~/.hermes/mr-watch/` folder (config and state).
 
 ## Pitfalls
 
