@@ -43,6 +43,15 @@ Fix crash on cold start
 
 ## Install
 
+### New to Hermes? (one-time, ~5 min)
+
+1. **Install Hermes:** `curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`, then run `hermes setup` and pick a model provider. On macOS you can install the [desktop app](https://hermes-agent.nousresearch.com/docs/getting-started/installation) instead.
+2. **Connect Telegram:** run `hermes plugins enable telegram-platform`, then `hermes gateway setup` → **Telegram**. Choose the QR option (scan it in Telegram, and Hermes creates the bot for you) or paste a token from [@BotFather](https://t.me/BotFather). Say **yes** to allow-listing your own account, so only you can use the bot.
+3. **Keep it running:** run `hermes gateway install`, so the bot and the cron jobs survive reboots. Then send your bot a message. If it answers, you're ready.
+
+Full guides: [installation](https://hermes-agent.nousresearch.com/docs/getting-started/installation), [Telegram](https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram).
+
+### Install mr-watch
 ```bash
 hermes skills install ArefMozafari/hermes-mr-watch/skills/mr-watch
 ```
